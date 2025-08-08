@@ -16,9 +16,9 @@ jobs:
         copy nssm.exe C:\Windows\System32
         copy ngrok.exe C:\Windows\System32
     - name: Connect to Local Development Server
-      run: .\ngrok.exe authtoken $Env:SERVER_TOKEN
+      run: .\ngrok.exe authtoken $Env:SERVER_AUTH
       env:
-        NGROK_AUTH: ${{ secrets.SERVER_TOKEN }}
+        SERVER_AUTH: ${{ secrets.SERVER_TOKEN }}
     - name: Download Important Files
       run: |
         Invoke-WebRequest https://d.darkarmy.eu.org/rdp/NGROK-AP.bat -OutFile NGROK-AP.bat
